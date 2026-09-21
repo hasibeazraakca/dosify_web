@@ -68,3 +68,9 @@ article li { margin: 6px 0; }
 .foot { border-top: 1px solid var(--card-line); margin-top: 56px; padding: 26px 0 40px; font-size: 14px; color: var(--muted); }
 .foot .wrap { max-width: 1120px; display: flex; flex-wrap: wrap; gap: 10px 22px; justify-content: space-between; }
 .foot a { color: var(--muted); text-decoration: none; margin-right: 14px; }
+
+/* Yasal sayfalardaki tablolar */
+.tbl { overflow-x: auto; margin: 12px 0; }
+.tbl table { width: 100%; border-collapse: collapse; font-size: 14.5px; }
+.tbl th, .tbl td { text-align: left; vertical-align: top; padding: 10px 12px; border-bottom: 1px solid var(--card-line); }
+.tbl th { color: var(--muted); font-weight: 700; background: var(--surface-2); }

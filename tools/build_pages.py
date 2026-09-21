@@ -13,11 +13,22 @@ tanıtımı yasak), tanı/tedavi önerisi verilmez; ilaca özgü yazılar yayın
 import html
 import json
 import os
+import sys
+
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+from legal_content import LEGAL, META as LEGAL_META  # noqa: E402
 
 SITE = "https://dosify-web.onrender.com/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = "2026-09-21"
 TODAY_TR = "21 Eylül 2026"
+
+LEGAL_LINKS = [
+    ("Gizlilik", "/gizlilik/"),
+    ("KVKK Aydınlatma", "/kvkk/"),
+    ("Açık rıza", "/acik-riza/"),
+    ("Kullanım koşulları", "/kullanim-kosullari/"),
+]
 
 MENU = [
     ("İlaç etkileşimi", "/ilac-etkilesimi/"),
@@ -85,7 +96,7 @@ def breadcrumb_ld(trail):
     }
 
 
-def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta_line="", faq=None, related=()):
+def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta_line="", faq=None, related=(), legal=False):
     url = SITE.rstrip("/") + path
     menu = "".join(
         f'<a href="{u}"{" aria-current=\"page\"" if path.startswith(u) else ""}>{n}</a>' for n, u in MENU
@@ -140,13 +151,14 @@ def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta
     <p class="lead">{lead}</p>
     {body}
     {faq_html(faq)}
-    <div class="note">{DISCLAIMER}</div>
-    {cta()}
+    {'' if legal else f'<div class="note">{DISCLAIMER}</div>'}
+    {'' if legal else cta()}
     {related_html}
   </article>
 </main>
 <footer class="foot"><div class="wrap">
   <div>{"".join(f'<a href="{u}">{n}</a>' for n, u in MENU)}<a href="/#sss">SSS</a><a href="/#basvuru">İletişim</a></div>
+  <div>{"".join(f'<a href="{u}">{n}</a>' for n, u in LEGAL_LINKS)}</div>
   <div>© 2026 Dosify · Cebinizdeki sağlık asistanı</div>
 </div></footer>
 </body>
@@ -463,6 +475,14 @@ def build():
             related=[(o["title"], f"/blog/{o['slug']}/", o["summary"]) for o in POSTS if o is not post][:2],
         ))
         urls.append((path, "0.7"))
+
+    for doc in LEGAL:
+        write(doc["path"], layout(
+            path=doc["path"], title=doc["title"], description=doc["description"], h1=doc["h1"],
+            lead=doc["lead"], body=doc["body"], trail=[("Ana sayfa", "/"), (doc["h1"], doc["path"])],
+            meta_line=LEGAL_META, legal=True,
+        ))
+        urls.append((doc["path"], "0.3"))
 
     posts_html = '<div class="posts">' + "".join(
         f'<a href="/blog/{o["slug"]}/"><b>{e(o["title"])}</b><span>{e(o["summary"])}</span></a>' for o in POSTS
