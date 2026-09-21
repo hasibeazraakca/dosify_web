@@ -1,15 +1,20 @@
 """
 Yasal sayfaların içeriği: Gizlilik Politikası, KVKK Aydınlatma Metni, Açık Rıza Metni, Kullanım Koşulları.
 
-ÖNEMLİ — yayından önce:
-  1. [ADRES] yer tutucusunu veri sorumlusunun tebligat adresiyle değiştirin.
+ÖNEMLİ — yayından önce (şahıs şirketi kurulduktan sonra):
+  1. TRADE_NAME, TAX_OFFICE, TAX_NO ve ADDRESS alanlarını vergi levhasındaki bilgilerle doldurun.
   2. İletişim e-postasının (CONTACT_EMAIL) gerçekten çalıştığını doğrulayın.
   3. Metinleri bir avukata okutun (hukukçu dosyasındaki sorularla birlikte).
 Metinler uygulamanın kodda gerçekten yaptığına göre yazılmıştır; özellik değiştikçe güncellenmelidir.
 """
 
-CONTROLLER = "Hasibe Akça"  # Şirket kurulana kadar veri sorumlusu gerçek kişi
-ADDRESS = "[ADRES]"
+# Veri sorumlusu: şahıs işletmesi (gerçek kişi tacir). Unvanda işletme sahibinin adı soyadı zorunludur.
+OWNER = "Hasibe Akca"
+TRADE_NAME = "[TİCARİ UNVAN — ör. Hasibe Akca – HMFA Yazılım ve Bilişim Hizmetleri]"
+TAX_OFFICE = "[VERGİ DAİRESİ]"
+TAX_NO = "[VERGİ NO]"
+ADDRESS = "[İŞ YERİ ADRESİ]"
+CONTROLLER = TRADE_NAME
 CONTACT_EMAIL = "destek@dosify.com"
 VERSION = "Sürüm 1.0"
 EFFECTIVE = "[YÜRÜRLÜK TARİHİ]"
@@ -37,7 +42,9 @@ META = f"{VERSION} · Yürürlük: {EFFECTIVE}"
 
 # ------------------------------------------------------------------ ortak bölümler
 CONTROLLER_BLOCK = _p(
-    f"<b>Veri sorumlusu:</b> {CONTROLLER} (Dosify)<br>"
+    f"<b>Veri sorumlusu:</b> {TRADE_NAME}<br>"
+    f"<b>İşletme sahibi:</b> {OWNER}<br>"
+    f"<b>Vergi dairesi / no:</b> {TAX_OFFICE} / {TAX_NO}<br>"
     f"<b>Adres:</b> {ADDRESS}<br>"
     f'<b>E-posta:</b> <a href="mailto:{CONTACT_EMAIL}">{CONTACT_EMAIL}</a>'
 )
@@ -211,8 +218,8 @@ KVKK = "".join([
 CONSENT = "".join([
     _p('Bu metni okumadan önce <a href="/kvkk/">KVKK Aydınlatma Metni</a>\'ni incelemenizi öneririz.'),
     _h2("Neye rıza veriyorsunuz?"),
-    _p(f"Dosify uygulamasına girdiğim ve uygulamayı kullanırken oluşan aşağıdaki sağlık verilerimin, {CONTROLLER} "
-       "(Dosify) tarafından aşağıda belirtilen amaçlarla işlenmesine açık rıza veriyorum:"),
+    _p(f"Dosify uygulamasına girdiğim ve uygulamayı kullanırken oluşan aşağıdaki sağlık verilerimin, Dosify'ı "
+       f"işleten {CONTROLLER} tarafından aşağıda belirtilen amaçlarla işlenmesine açık rıza veriyorum:"),
     _ul([
         "Kullandığım ilaçlar, ilaç hatırlatıcılarım ve doz kayıtlarım,",
         "Alerjilerim, kronik hastalıklarım, geçirdiğim ameliyatlar ve kilom,",
@@ -243,8 +250,9 @@ CONSENT = "".join([
 
 # ------------------------------------------------------------------ Kullanım Koşulları
 TERMS = "".join([
-    _p("Bu koşullar, Dosify mobil uygulamasını ve web sitesini (\"Dosify\") kullanımınızı düzenler. Dosify'ı "
-       "kullanarak bu koşulları kabul etmiş olursunuz."),
+    _p("Bu koşullar, Dosify mobil uygulamasını ve web sitesini (\"Dosify\") kullanımınızı düzenler. Dosify, "
+       "aşağıda bilgileri yer alan şahıs işletmesi tarafından işletilir. Dosify'ı kullanarak bu koşulları kabul "
+       "etmiş olursunuz."),
     _h2("1. Taraflar"),
     CONTROLLER_BLOCK,
     _h2("2. Hizmet"),
