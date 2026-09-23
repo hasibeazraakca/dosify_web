@@ -1,4 +1,4 @@
-# Dosify Web — Kurumsal Tanıtım Sitesi
+# Dozunda Web — Kurumsal Tanıtım Sitesi
 
 Statik tek sayfa (index.html). Render **Static Site** olarak deploy edilir.
 
