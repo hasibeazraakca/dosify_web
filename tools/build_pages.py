@@ -129,7 +129,7 @@ def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="/"><img src="/favicon.png" alt="" width="30" height="30" />Dozunda</a>
+  <a class="brand" href="/"><span class="logo" aria-hidden="true"></span>Dozunda</a>
   <nav class="menu" aria-label="Ana menü">{menu}</nav>
 </div></header>
 <main class="wrap">
