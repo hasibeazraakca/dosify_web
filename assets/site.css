@@ -28,8 +28,8 @@ a { color: var(--primary); }
 .top { position: sticky; top: 0; z-index: 10; background: color-mix(in srgb, var(--bg) 88%, transparent); backdrop-filter: blur(10px); border-bottom: 1px solid var(--card-line); }
 .top .wrap { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 62px; max-width: 1120px; }
 .brand { display: inline-flex; align-items: center; gap: 9px; font-weight: 800; font-size: 19px; color: var(--primary-dark); text-decoration: none; }
-.brand .logo { width: 30px; height: 34px; background: url("/assets/logo-ink.png") center/contain no-repeat; }
-@media (prefers-color-scheme: dark) { .brand .logo { background-image: url("/assets/logo-light.png"); } }
+.brand .logo { width: 30px; height: 34px; background: url("/assets/logo-ink.png?v=2") center/contain no-repeat; }
+@media (prefers-color-scheme: dark) { .brand .logo { background-image: url("/assets/logo-light.png?v=2"); } }
 .menu { display: flex; flex-wrap: wrap; gap: 4px 16px; font-size: 14px; }
 .menu a { color: var(--muted); text-decoration: none; font-weight: 600; }
 .menu a:hover, .menu a[aria-current="page"] { color: var(--primary-dark); }

@@ -10,11 +10,11 @@ Kalkanın silüetini eşikleyip düz renge boyuyoruz; küçük boyutta net, koyu
 import os
 import sys
 
-from PIL import Image
+from PIL import Image, ImageFilter
 
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 DEFAULT_SRC = os.path.join(
-    os.path.dirname(os.path.dirname(ROOT)), "Dosify_mobile_frontend_1_1", "assets", "dozunda-logo.png"
+    os.path.dirname(ROOT), "Dosify_mobile_frontend_1_1", "assets", "dozunda-logo.png"
 )
 
 TARGET = (176, 200)  # 30x34 CSS pikseline ~6x; retina ekranda net
@@ -33,8 +33,11 @@ def main():
     shield = src.crop((0, 0, w, int(h * 0.72)))
     shield = shield.crop(shield.split()[3].getbbox())
 
+    # Eşik düşük tutuluyor: kalkanın sağ üst kenarı kaynakta yarı saydam beyaz, yüksek eşikte
+    # o kenar kayboluyor ve logo kırık görünüyordu. Median filtre de tarama lekelerini siliyor.
     big = (shield.size[0] * 4, shield.size[1] * 4)
-    mask = shield.split()[3].resize(big, Image.LANCZOS).point(lambda v: 255 if v >= 110 else 0)
+    mask = shield.split()[3].resize(big, Image.LANCZOS).point(lambda v: 255 if v >= 30 else 0)
+    mask = mask.filter(ImageFilter.MedianFilter(5))
 
     for name, color in VARIANTS.items():
         img = Image.new("RGBA", TARGET, color + (255,))
