@@ -1,4 +1,7 @@
 User-agent: *
 Allow: /
 
+# Site haritası iki adresten de erişilebilir; sitemap_index.xml yalnızca
+# sitemap.xml'i işaret eden bir dizindir (eski gönderimler kırık kalmasın diye).
 Sitemap: https://dozunda.com/sitemap.xml
+Sitemap: https://dozunda.com/sitemap_index.xml

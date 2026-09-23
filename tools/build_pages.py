@@ -16,8 +16,22 @@ import os
 
 SITE = "https://dozunda.com/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-TODAY = "2026-09-21"
-TODAY_TR = "21 Eylül 2026"
+TODAY = "2026-09-24"
+TODAY_TR = "24 Eylül 2026"
+
+# Sayfa bazlı son güncelleme tarihleri. Hepsine bugünün tarihini yazmak yerine
+# gerçekten ne zaman değiştiğini yazıyoruz; Google tekrar tarama sıklığını buna göre ayarlıyor.
+LASTMOD = {
+    "/": "2026-09-24",
+    "/ilac-etkilesimi/": "2026-09-21",
+    "/ilac-hatirlatici/": "2026-09-21",
+    "/yakin-takibi/": "2026-09-21",
+    "/nobetci-eczane/": "2026-09-21",
+    "/blog/": "2026-09-21",
+    "/blog/yasli-anne-babanin-ilac-takibi/": "2026-09-21",
+    "/blog/nobetci-eczane-nasil-bulunur/": "2026-09-21",
+    "/blog/prospektus-karekod-elektronik-kullanma-talimati/": "2026-09-21",
+}
 
 MENU = [
     ("İlaç etkileşimi", "/ilac-etkilesimi/"),
@@ -475,13 +489,43 @@ def build():
     ))
     urls.insert(1, ("/blog/", "0.8"))
 
+    # --- site haritası ---------------------------------------------------
+    # changefreq: Google artık dikkate almıyor ama Bing/Yandex kullanıyor.
+    # lastmod gerçek olmalı; her sayfaya aynı tarihi yazmak güven kaybettiriyor.
+    def changefreq(path):
+        if path == "/":
+            return "weekly"
+        if path.startswith("/blog"):
+            return "monthly"
+        return "monthly"
+
     sitemap = ['<?xml version="1.0" encoding="UTF-8"?>',
                '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">']
     for path, priority in urls:
-        sitemap.append(f"  <url><loc>{SITE.rstrip('/')}{path}</loc><lastmod>{TODAY}</lastmod><priority>{priority}</priority></url>")
+        loc = SITE.rstrip("/") + path
+        sitemap.append(
+            "  <url>"
+            f"<loc>{loc}</loc>"
+            f"<lastmod>{LASTMOD.get(path, TODAY)}</lastmod>"
+            f"<changefreq>{changefreq(path)}</changefreq>"
+            f"<priority>{priority}</priority>"
+            "</url>"
+        )
     sitemap.append("</urlset>")
     with open(os.path.join(ROOT, "sitemap.xml"), "w", encoding="utf-8", newline="\n") as f:
         f.write("\n".join(sitemap) + "\n")
+
+    # Site haritası dizini: bazı araçlar (ve alan adının eski sahibinin Search Console
+    # kaydı) /sitemap_index.xml adresini arıyor. Tek haritamızı oradan da gösteriyoruz
+    # ki "alınamadı" hatası kalmasın ve ileride harita bölünürse adres değişmesin.
+    index_xml = (
+        '<?xml version="1.0" encoding="UTF-8"?>\n'
+        '<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n'
+        f'  <sitemap><loc>{SITE}sitemap.xml</loc><lastmod>{TODAY}</lastmod></sitemap>\n'
+        "</sitemapindex>\n"
+    )
+    with open(os.path.join(ROOT, "sitemap_index.xml"), "w", encoding="utf-8", newline="\n") as f:
+        f.write(index_xml)
     print(f"{len(PAGES)} özellik sayfası, {len(POSTS)} blog yazısı, blog ana sayfası ve {len(urls)} adresli site haritası üretildi.")
 
 
