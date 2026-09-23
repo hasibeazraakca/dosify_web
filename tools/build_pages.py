@@ -14,7 +14,7 @@ import html
 import json
 import os
 
-SITE = "https://dosify-web.onrender.com/"
+SITE = "https://dosify.com.tr/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = "2026-09-21"
 TODAY_TR = "21 Eylül 2026"
