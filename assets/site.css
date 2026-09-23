@@ -1,4 +1,4 @@
-/* Dosify alt sayfaları (özellik sayfaları ve blog) için ortak stil. Ana sayfanın renkleriyle aynı. */
+/* Dozunda alt sayfaları (özellik sayfaları ve blog) için ortak stil. Ana sayfanın renkleriyle aynı. */
 :root {
   --bg: #F5FBFB; --surface: #FFFFFF; --surface-2: #EEF6F6;
   --ink: #06272B; --ink-soft: #0A3D42; --muted: #5F7A80; --muted-2: #8FA8AD;

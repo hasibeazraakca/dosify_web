@@ -1,5 +1,5 @@
 """
-Dosify web sitesinin alt sayfalarını (özellik sayfaları + blog) üretir.
+Dozunda web sitesinin alt sayfalarını (özellik sayfaları + blog) üretir.
 
 Kullanım (depo kökünde):  python tools/build_pages.py
 Çıktı: ilac-etkilesimi/, ilac-hatirlatici/, yakin-takibi/, nobetci-eczane/, blog/ klasörleri ve sitemap.xml
@@ -18,7 +18,7 @@ import sys
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from legal_content import LEGAL, META as LEGAL_META  # noqa: E402
 
-SITE = "https://dosify-web.onrender.com/"
+SITE = "https://dozunda.com/"
 ROOT = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 TODAY = "2026-09-21"
 TODAY_TR = "21 Eylül 2026"
@@ -76,7 +76,7 @@ def faq_html(faq):
 
 
 def cta():
-    return ('<div class="cta"><h2>Dosify çok yakında Google Play\'de</h2>'
+    return ('<div class="cta"><h2>Dozunda çok yakında Google Play\'de</h2>'
             '<p>Üye olmadan ilaç etkileşimi kontrolü, ilaç hatırlatıcı, yakın takibi ve nöbetçi eczane — ücretsiz.</p>'
             '<a href="/#basvuru">Yayına çıkınca haber alın</a></div>')
 
@@ -130,7 +130,7 @@ def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta
 <link rel="stylesheet" href="/assets/site.css" />
 <meta property="og:type" content="{"article" if path.startswith("/blog/") and path != "/blog/" else "website"}" />
 <meta property="og:locale" content="tr_TR" />
-<meta property="og:site_name" content="Dosify" />
+<meta property="og:site_name" content="Dozunda" />
 <meta property="og:title" content="{e(title)}" />
 <meta property="og:description" content="{e(description)}" />
 <meta property="og:url" content="{url}" />
@@ -140,7 +140,7 @@ def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta
 </head>
 <body>
 <header class="top"><div class="wrap">
-  <a class="brand" href="/"><img src="/favicon.png" alt="" width="30" height="30" />Dosify</a>
+  <a class="brand" href="/"><img src="/favicon.png" alt="" width="30" height="30" />Dozunda</a>
   <nav class="menu" aria-label="Ana menü">{menu}</nav>
 </div></header>
 <main class="wrap">
@@ -159,7 +159,7 @@ def layout(*, path, title, description, h1, lead, body, trail, extra_ld=(), meta
 <footer class="foot"><div class="wrap">
   <div>{"".join(f'<a href="{u}">{n}</a>' for n, u in MENU)}<a href="/#sss">SSS</a><a href="/#basvuru">İletişim</a></div>
   <div>{"".join(f'<a href="{u}">{n}</a>' for n, u in LEGAL_LINKS)}</div>
-  <div>© 2026 Dosify · Cebinizdeki sağlık asistanı</div>
+  <div>© 2026 Dozunda · Cebinizdeki sağlık asistanı</div>
 </div></footer>
 </body>
 </html>
@@ -177,11 +177,11 @@ FEATURE_LINKS = {
 PAGES = [
     dict(
         path="/ilac-etkilesimi/",
-        title="İlaç Etkileşimi Sorgulama: Ücretsiz ve Üyeliksiz | Dosify",
+        title="İlaç Etkileşimi Sorgulama: Ücretsiz ve Üyeliksiz | Dozunda",
         description="Kullandığınız ilaçların birbiriyle etkileşimini üye olmadan, saniyeler içinde kontrol edin. "
                     "İlaç adını yazın ya da kutudaki karekodu okutun. Ücretsiz.",
         h1="İlaç etkileşimi sorgulama",
-        lead="Birden fazla ilaç kullanıyorsanız, ilaçlarınızın birbiriyle uyumlu olup olmadığını Dosify ile üye "
+        lead="Birden fazla ilaç kullanıyorsanız, ilaçlarınızın birbiriyle uyumlu olup olmadığını Dozunda ile üye "
              "olmadan, saniyeler içinde kontrol edebilirsiniz.",
         body="".join([
             h2("İlaç etkileşimi nedir?"),
@@ -189,11 +189,11 @@ PAGES = [
               "azaltması ya da beklenmeyen yan etkilere yol açması durumudur. Özellikle farklı hekimlerden ilaç "
               "yazılan, kronik hastalığı olan ya da reçetesiz ağrı kesici ve takviyeleri reçeteli ilaçlarıyla "
               "birlikte kullanan kişilerde dikkat edilmesi gereken bir konudur."),
-            h2("Dosify ile nasıl kontrol edilir?"),
+            h2("Dozunda ile nasıl kontrol edilir?"),
             steps([
                 "<b>İlk ilacı ekleyin.</b> İlacın adını yazın ya da ilaç kutusundaki karekodu telefonunuzun kamerasıyla okutun.",
                 "<b>Diğer ilacı ekleyin.</b> Birlikte kullandığınız ikinci ilacı aynı şekilde seçin.",
-                "<b>Sonucu görün.</b> Dosify, bilinen bir etkileşim varsa önem derecesiyle birlikte gösterir.",
+                "<b>Sonucu görün.</b> Dozunda, bilinen bir etkileşim varsa önem derecesiyle birlikte gösterir.",
             ]),
             p("Üye olursanız kayıtlı ilaçlarınızı tek seferde birlikte kontrol edebilir, sonuçları ilaç "
               "hatırlatıcınızla birlikte kullanabilirsiniz. Üye olmadan da tek tek sorgulama yapabilirsiniz."),
@@ -203,7 +203,7 @@ PAGES = [
               "Etkileşim görmemeniz de iki ilacın her durumda güvenli olduğu anlamına gelmez."),
         ]),
         faq=[
-            ("İlaç etkileşimi sorgulamak ücretli mi?", "Hayır. Dosify'da ilaç etkileşimi kontrolü ücretsizdir ve üyelik gerektirmez."),
+            ("İlaç etkileşimi sorgulamak ücretli mi?", "Hayır. Dozunda'da ilaç etkileşimi kontrolü ücretsizdir ve üyelik gerektirmez."),
             ("Karekod okutarak ilaç ekleyebilir miyim?", "Evet. İlaç kutusundaki karekodu telefonunuzun kamerasıyla okutarak ilacı listeye ekleyebilirsiniz."),
             ("Etkileşim çıkarsa ilacımı bırakmalı mıyım?", "Hayır, kendi başınıza ilacınızı bırakmayın ya da dozunu değiştirmeyin. Sonucu eczacınıza veya hekiminize danışın."),
             ("Reçetesiz ilaçları ve takviyeleri de kontrol edebilir miyim?", "Veri tabanında bulunan reçetesiz ilaçları da sorgulayabilirsiniz. Kullandığınız her ürünü eczacınıza söylemeniz yine de önemlidir."),
@@ -212,11 +212,11 @@ PAGES = [
     ),
     dict(
         path="/ilac-hatirlatici/",
-        title="İlaç Hatırlatıcı Uygulaması: Dozunuzu Unutmayın | Dosify",
+        title="İlaç Hatırlatıcı Uygulaması: Dozunuzu Unutmayın | Dozunda",
         description="İlaç saatinde hatırlatma alın, kutuda kalan ilacı takip edin, kronik ilaçta reçete zamanını "
                     "kaçırmayın. Kendiniz ve aileniz için ücretsiz.",
         h1="İlaç hatırlatıcı",
-        lead="Dosify, ilacınızı zamanında almanız için doz saatinde hatırlatır, kutuda kalan ilacı sayar ve ilacınız "
+        lead="Dozunda, ilacınızı zamanında almanız için doz saatinde hatırlatır, kutuda kalan ilacı sayar ve ilacınız "
              "bitmeden sizi uyarır.",
         body="".join([
             h2("Neler yapabilirsiniz?"),
@@ -236,11 +236,11 @@ PAGES = [
             ]),
             p("Doz saati geldiğinde bildirim alırsınız. İlacınızı aldığınızda tek dokunuşla işaretlemeniz yeterli."),
             h2("Anne babanızın ilacını da takip edin"),
-            p("Yakınınız kendi telefonunda Dosify kullanıyorsa, onun onayıyla dozlarını aldığını kendi telefonunuzdan "
+            p("Yakınınız kendi telefonunda Dozunda kullanıyorsa, onun onayıyla dozlarını aldığını kendi telefonunuzdan "
               f'görebilirsiniz. Ayrıntılar için <a href="/yakin-takibi/">yakın takibi</a> sayfasına bakın.'),
         ]),
         faq=[
-            ("İlaç hatırlatıcı ücretli mi?", "Hayır, Dosify'ın ilaç hatırlatıcısı ücretsizdir."),
+            ("İlaç hatırlatıcı ücretli mi?", "Hayır, Dozunda'nın ilaç hatırlatıcısı ücretsizdir."),
             ("Bir dozu unutursam ne olur?", "Doz saatinden sonra işaretlenmeyen doz, geçmişinizde alınmadı olarak görünür. Unutulan bir doz için ne yapılacağı ilaca göre değişir; kullanma talimatına bakın ya da eczacınıza sorun."),
             ("Aynı anda birden fazla ilaç ekleyebilir miyim?", "Evet, istediğiniz kadar ilaç ve doz saati ekleyebilirsiniz."),
             ("Ailemdeki biri için hatırlatıcı kurabilir miyim?", "Evet. Aile üyesi profili ekleyip onun ilaçları için ayrı hatırlatıcı kurabilirsiniz."),
@@ -249,17 +249,17 @@ PAGES = [
     ),
     dict(
         path="/yakin-takibi/",
-        title="Yaşlı Anne Babanın İlaç Takibi: Yakın Takibi | Dosify",
+        title="Yaşlı Anne Babanın İlaç Takibi: Yakın Takibi | Dozunda",
         description="Annenizin, babanızın ilacını zamanında aldığını telefonunuzdan görün; almadıysa tek dokunuşla "
                     "hatırlatın. Onaya dayalı, güvenli ve ücretsiz yakın takibi.",
         h1="Yakın takibi: anne babanızın ilacını uzaktan görün",
-        lead="\"İlacını içtin mi?\" diye her gün aramanıza gerek yok. Yakınınız ilacını aldığında Dosify'da görürsünüz; "
+        lead="\"İlacını içtin mi?\" diye her gün aramanıza gerek yok. Yakınınız ilacını aldığında Dozunda'da görürsünüz; "
              "almadıysa tek dokunuşla hatırlatırsınız.",
         body="".join([
             h2("Nasıl çalışır?"),
             steps([
                 "<b>Yakınınız kod oluşturur.</b> Kendi telefonunda Profil › Yakınlarım bölümünden 6 karakterli bir eşleştirme kodu oluşturur. Kod 10 dakika geçerlidir ve tek kullanımlıktır.",
-                "<b>Siz kodu girersiniz.</b> Kendi Dosify'ınızda Yakınlarım bölümüne kodu yazar, yakınınıza bir isim verirsiniz (ör. Annem).",
+                "<b>Siz kodu girersiniz.</b> Kendi Dozunda uygulamanızda Yakınlarım bölümüne kodu yazar, yakınınıza bir isim verirsiniz (ör. Annem).",
                 "<b>Yakınınız onaylar.</b> Kendi telefonunda neleri görebileceğinizi okur ve onaylar. Onay olmadan hiçbir bilgi paylaşılmaz.",
                 "<b>Dozları görürsünüz.</b> Hatırlatıcı ekranında yakınınızı seçerek bugün hangi dozu aldığını, hangisini beklediğini ya da kaçırdığını görürsünüz.",
             ]),
@@ -274,7 +274,7 @@ PAGES = [
             ]),
         ]),
         faq=[
-            ("Yakınımın telefonunda da Dosify olması gerekiyor mu?", "Evet. Yakın takibi, iki tarafın da kendi Dosify hesabıyla çalışır. Yakınınızın telefonu yoksa onun için aile üyesi profili açıp hatırlatıcıları kendi telefonunuzda yönetebilirsiniz."),
+            ("Yakınımın telefonunda da Dozunda olması gerekiyor mu?", "Evet. Yakın takibi, iki tarafın da kendi Dozunda hesabıyla çalışır. Yakınınızın telefonu yoksa onun için aile üyesi profili açıp hatırlatıcıları kendi telefonunuzda yönetebilirsiniz."),
             ("Yakınım neleri paylaşmış olur?", "Yalnızca hatırlatıcıları ve dozlarını aldığı bilgisini. Diğer sağlık bilgileri paylaşılmaz."),
             ("Bu özellik ücretli mi?", "Hayır, yakın takibi ve aile özellikleri ücretsizdir."),
             ("Takibi nasıl sonlandırırım?", "İki taraf da Profil › Yakınlarım bölümünden bağlantıyı tek dokunuşla kaldırabilir."),
@@ -283,10 +283,10 @@ PAGES = [
     ),
     dict(
         path="/nobetci-eczane/",
-        title="Nöbetçi Eczane Bul: İl ve İlçeye Göre | Dosify",
+        title="Nöbetçi Eczane Bul: İl ve İlçeye Göre | Dozunda",
         description="Gece, hafta sonu ve bayramda açık nöbetçi eczaneyi il ve ilçenize göre bulun. Türkiye'nin 81 ili. Ücretsiz, üyelik gerektirmez.",
         h1="Nöbetçi eczane bul",
-        lead="Dosify'da il ve ilçenizi seçin, o günün nöbetçi eczanelerini görün. Türkiye'nin 81 ili için, üye olmadan.",
+        lead="Dozunda'da il ve ilçenizi seçin, o günün nöbetçi eczanelerini görün. Türkiye'nin 81 ili için, üye olmadan.",
         body="".join([
             h2("Nasıl kullanılır?"),
             steps([
@@ -354,8 +354,8 @@ POSTS = [
                 "Sık kullanılan ilaçların talimatındaki doz ve uyarı bölümlerini birlikte okuyun.",
                 "Emin olunamayan her konuda eczacıya danışmayı alışkanlık haline getirin.",
             ]),
-            h2("Dosify bu konuda ne yapar?"),
-            p("Dosify'da ilaç kutusundaki karekodu okutarak ilacı bulabilir, kullandığınız diğer ilaçlarla "
+            h2("Dozunda bu konuda ne yapar?"),
+            p("Dozunda'da ilaç kutusundaki karekodu okutarak ilacı bulabilir, kullandığınız diğer ilaçlarla "
               f'<a href="/ilac-etkilesimi/">etkileşimini kontrol edebilir</a> ve '
               f'<a href="/ilac-hatirlatici/">hatırlatıcı kurabilirsiniz</a>.'),
             '<p class="sources">Kaynaklar: basında yer alan haberler (Eylül 2026) — '
@@ -381,7 +381,7 @@ POSTS = [
               "güne göre değişebilir; genellikle akşam saatlerinde başlar ve ertesi sabah sona erer."),
             h2("Nöbetçi eczaneyi bulmanın 3 yolu"),
             h3("1. Uygulamadan il ve ilçeye göre arayın"),
-            p(f'<a href="/nobetci-eczane/">Dosify\'da</a> il ve ilçenizi seçerek o günün nöbetçi eczanelerini adres ve '
+            p(f'<a href="/nobetci-eczane/">Dozunda\'da</a> il ve ilçenizi seçerek o günün nöbetçi eczanelerini adres ve '
               "telefonlarıyla görebilirsiniz. Üyelik gerekmez."),
             h3("2. İl eczacı odasının internet sitesine bakın"),
             p("Her ilin eczacı odası güncel nöbet listesini yayımlar."),
@@ -463,15 +463,15 @@ def build():
             "inLanguage": "tr",
             "datePublished": TODAY,
             "dateModified": TODAY,
-            "author": {"@type": "Organization", "name": "Dosify Editör Ekibi", "url": SITE},
-            "publisher": {"@type": "Organization", "name": "Dosify", "logo": {"@type": "ImageObject", "url": SITE + "favicon.png"}},
+            "author": {"@type": "Organization", "name": "Dozunda Editör Ekibi", "url": SITE},
+            "publisher": {"@type": "Organization", "name": "Dozunda", "logo": {"@type": "ImageObject", "url": SITE + "favicon.png"}},
             "image": SITE + "og-image.png",
             "mainEntityOfPage": SITE.rstrip("/") + path,
         }
         write(path, layout(
-            path=path, title=f"{post.get('seo_title', post['title'])} | Dosify", description=post["description"],
+            path=path, title=f"{post.get('seo_title', post['title'])} | Dozunda", description=post["description"],
             h1=post["h1"], lead=post["lead"], body=post["body"], trail=trail, extra_ld=[article_ld],
-            meta_line=f"Dosify Editör Ekibi · Son güncelleme: {TODAY_TR}",
+            meta_line=f"Dozunda Editör Ekibi · Son güncelleme: {TODAY_TR}",
             related=[(o["title"], f"/blog/{o['slug']}/", o["summary"]) for o in POSTS if o is not post][:2],
         ))
         urls.append((path, "0.7"))
@@ -488,9 +488,9 @@ def build():
         f'<a href="/blog/{o["slug"]}/"><b>{e(o["title"])}</b><span>{e(o["summary"])}</span></a>' for o in POSTS
     ) + "</div>"
     write("/blog/", layout(
-        path="/blog/", title="Blog: İlaç Kullanımı ve Sağlık Rehberleri | Dosify",
+        path="/blog/", title="Blog: İlaç Kullanımı ve Sağlık Rehberleri | Dozunda",
         description="İlaç kullanımı, ilaç takibi, nöbetçi eczane ve sağlık okuryazarlığı üzerine anlaşılır rehberler.",
-        h1="Dosify Blog", lead="İlaçlarınızı güvenle kullanmanız için anlaşılır rehberler.",
+        h1="Dozunda Blog", lead="İlaçlarınızı güvenle kullanmanız için anlaşılır rehberler.",
         body=posts_html, trail=[("Ana sayfa", "/"), ("Blog", "/blog/")],
     ))
     urls.insert(1, ("/blog/", "0.8"))

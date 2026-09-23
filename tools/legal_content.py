@@ -15,7 +15,7 @@ TAX_OFFICE = "[VERGİ DAİRESİ]"
 TAX_NO = "[VERGİ NO]"
 ADDRESS = "[İŞ YERİ ADRESİ]"
 CONTROLLER = TRADE_NAME
-CONTACT_EMAIL = "destek@dosify.com"
+CONTACT_EMAIL = "destek@dozunda.com"
 VERSION = "Sürüm 1.0"
 EFFECTIVE = "[YÜRÜRLÜK TARİHİ]"
 
@@ -98,7 +98,7 @@ DELETE_BLOCK = "".join([
 
 # ------------------------------------------------------------------ Gizlilik Politikası
 PRIVACY = "".join([
-    _p("Bu politika, Dosify mobil uygulamasını ve web sitesini kullanırken hangi bilgilerinizi topladığımızı, "
+    _p("Bu politika, Dozunda mobil uygulamasını ve web sitesini kullanırken hangi bilgilerinizi topladığımızı, "
        "bunları nasıl kullandığımızı ve koruduğumuzu sade bir dille anlatır. Kişisel verilerinizin işlenmesine ilişkin "
        'yasal bilgilendirme için <a href="/kvkk/">KVKK Aydınlatma Metni</a>\'ni de okuyabilirsiniz.'),
     _h2("1. Kim sorumlu?"),
@@ -156,7 +156,7 @@ PRIVACY = "".join([
     _h2('<span id="hesap-silme">8. Hesabınızı ve verilerinizi silme</span>'),
     DELETE_BLOCK,
     _h2("9. Çocuklar"),
-    _p("Dosify'a üye olmak için 18 yaşını doldurmuş olmanız gerekir. 18 yaşından küçük çocuklarınız için uygulama "
+    _p("Dozunda'a üye olmak için 18 yaşını doldurmuş olmanız gerekir. 18 yaşından küçük çocuklarınız için uygulama "
        "içinde aile üyesi profili oluşturarak ilaçlarını kendi hesabınızdan yönetebilirsiniz; bu durumda çocuğunuzun "
        "bilgilerini veli sıfatıyla sizin girdiğiniz kabul edilir."),
     _h2("10. Web sitesi"),
@@ -173,7 +173,7 @@ PRIVACY = "".join([
 
 # ------------------------------------------------------------------ KVKK Aydınlatma Metni
 KVKK = "".join([
-    _p("Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 10. maddesi uyarınca, Dosify "
+    _p("Bu aydınlatma metni, 6698 sayılı Kişisel Verilerin Korunması Kanunu'nun (KVKK) 10. maddesi uyarınca, Dozunda "
        "mobil uygulaması ve web sitesi kapsamında kişisel verilerinizin işlenmesine ilişkin sizi bilgilendirmek "
        "amacıyla hazırlanmıştır."),
     _h2("1. Veri sorumlusu"),
@@ -218,7 +218,7 @@ KVKK = "".join([
 CONSENT = "".join([
     _p('Bu metni okumadan önce <a href="/kvkk/">KVKK Aydınlatma Metni</a>\'ni incelemenizi öneririz.'),
     _h2("Neye rıza veriyorsunuz?"),
-    _p(f"Dosify uygulamasına girdiğim ve uygulamayı kullanırken oluşan aşağıdaki sağlık verilerimin, Dosify'ı "
+    _p(f"Dozunda uygulamasına girdiğim ve uygulamayı kullanırken oluşan aşağıdaki sağlık verilerimin, Dozunda'yı "
        f"işleten {CONTROLLER} tarafından aşağıda belirtilen amaçlarla işlenmesine açık rıza veriyorum:"),
     _ul([
         "Kullandığım ilaçlar, ilaç hatırlatıcılarım ve doz kayıtlarım,",
@@ -250,18 +250,18 @@ CONSENT = "".join([
 
 # ------------------------------------------------------------------ Kullanım Koşulları
 TERMS = "".join([
-    _p("Bu koşullar, Dosify mobil uygulamasını ve web sitesini (\"Dosify\") kullanımınızı düzenler. Dosify, "
-       "aşağıda bilgileri yer alan şahıs işletmesi tarafından işletilir. Dosify'ı kullanarak bu koşulları kabul "
+    _p("Bu koşullar, Dozunda mobil uygulamasını ve web sitesini (\"Dozunda\") kullanımınızı düzenler. Dozunda, "
+       "aşağıda bilgileri yer alan şahıs işletmesi tarafından işletilir. Dozunda'yı kullanarak bu koşulları kabul "
        "etmiş olursunuz."),
     _h2("1. Taraflar"),
     CONTROLLER_BLOCK,
     _h2("2. Hizmet"),
-    _p("Dosify; ilaç etkileşim kontrolü, ilaç hatırlatıcı, yakın takibi, nöbetçi eczane araması, eczane talebi, "
+    _p("Dozunda; ilaç etkileşim kontrolü, ilaç hatırlatıcı, yakın takibi, nöbetçi eczane araması, eczane talebi, "
        "regl ve gebelik takibi gibi araçlar sunan ücretsiz bir sağlık asistanı uygulamasıdır. Özellikler zaman içinde "
        "eklenebilir, değiştirilebilir veya kaldırılabilir."),
     _h2("3. Önemli sağlık uyarısı"),
     _ul([
-        "<b>Dosify bir teşhis veya tedavi aracı değildir;</b> hekim ve eczacı danışmanlığının yerine geçmez.",
+        "<b>Dozunda bir teşhis veya tedavi aracı değildir;</b> hekim ve eczacı danışmanlığının yerine geçmez.",
         "İlaç etkileşim sonuçları bilgilendirme amaçlıdır. Bir etkileşim görmemeniz iki ilacın her durumda güvenli olduğu anlamına gelmez; bir etkileşim görmeniz de ilacınızı kendi başınıza bırakmanız gerektiği anlamına gelmez.",
         "Hatırlatmalar internet bağlantısı, cihaz ayarları ve bildirim izinleri gibi etkenlere bağlıdır; ilacınızı zamanında almanın sorumluluğu size aittir. Hayati önemdeki ilaçlarda yalnızca uygulamaya güvenmeyin.",
         "<b>Acil durumlarda 112'yi arayın.</b>",
@@ -279,18 +279,18 @@ TERMS = "".join([
         "Yakın takibini, kişinin rızası dışında izlemek veya baskı kurmak amacıyla kullanamazsınız.",
     ]),
     _h2("6. Eczane talepleri"),
-    _p("Dosify ilaç satmaz, ödeme almaz ve ilacın teslimine aracılık etmez. Eczane talebi, ilacınızın yakınınızdaki "
+    _p("Dozunda ilaç satmaz, ödeme almaz ve ilacın teslimine aracılık etmez. Eczane talebi, ilacınızın yakınınızdaki "
        "eczanelerde bulunup bulunmadığını sormanızı sağlar. İlacın temini, satışı, fiyatı ve reçete kontrolü tamamen "
        "ilgili eczanenin sorumluluğundadır."),
     _h2("7. Kullanım kuralları"),
-    _p("Dosify'ı hukuka aykırı amaçlarla kullanamaz; başkalarının hesabına erişmeye, sistemi bozmaya, otomatik "
+    _p("Dozunda'yı hukuka aykırı amaçlarla kullanamaz; başkalarının hesabına erişmeye, sistemi bozmaya, otomatik "
        "araçlarla veri toplamaya veya eczanelere ve diğer kullanıcılara yanıltıcı, rahatsız edici içerik göndermeye "
        "çalışamazsınız. Bu kurallara aykırı kullanımda hesabınız askıya alınabilir veya kapatılabilir."),
     _h2("8. Fikri haklar"),
-    _p("Dosify'ın yazılımı, tasarımı, markası ve içerikleri üzerindeki haklar saklıdır. Kendi girdiğiniz içeriklerin "
+    _p("Dozunda'nın yazılımı, tasarımı, markası ve içerikleri üzerindeki haklar saklıdır. Kendi girdiğiniz içeriklerin "
        "(notlar, görüntüler) hakları size aittir; bunları yalnızca size hizmet sunmak için işleriz."),
     _h2("9. Sorumluluk"),
-    _p("Dosify'ı kesintisiz ve hatasız sunmak için özen gösteririz; ancak bakım, altyapı sağlayıcılarından kaynaklanan "
+    _p("Dozunda'yı kesintisiz ve hatasız sunmak için özen gösteririz; ancak bakım, altyapı sağlayıcılarından kaynaklanan "
        "kesintiler veya öngörülemeyen teknik sorunlar yaşanabilir. Kanunen sınırlandırılamayan sorumluluklar ile "
        "tüketici mevzuatından doğan haklarınız saklıdır."),
     _h2("10. Hesabın kapatılması"),
@@ -306,16 +306,16 @@ TERMS = "".join([
 ])
 
 LEGAL = [
-    dict(path="/gizlilik/", title="Gizlilik Politikası | Dosify", h1="Gizlilik Politikası",
-         description="Dosify'ın hangi bilgilerinizi topladığı, nasıl kullandığı, kimlerle paylaştığı ve nasıl koruduğu. Hesap ve veri silme.",
+    dict(path="/gizlilik/", title="Gizlilik Politikası | Dozunda", h1="Gizlilik Politikası",
+         description="Dozunda'nın hangi bilgilerinizi topladığı, nasıl kullandığı, kimlerle paylaştığı ve nasıl koruduğu. Hesap ve veri silme.",
          lead="Sağlık verisi hassastır. Neyi neden topladığımızı açıkça anlatıyoruz.", body=PRIVACY),
-    dict(path="/kvkk/", title="KVKK Aydınlatma Metni | Dosify", h1="KVKK Aydınlatma Metni",
-         description="6698 sayılı KVKK kapsamında Dosify'da işlenen kişisel veriler, işleme amaçları, hukuki sebepler, aktarım ve haklarınız.",
+    dict(path="/kvkk/", title="KVKK Aydınlatma Metni | Dozunda", h1="KVKK Aydınlatma Metni",
+         description="6698 sayılı KVKK kapsamında Dozunda'da işlenen kişisel veriler, işleme amaçları, hukuki sebepler, aktarım ve haklarınız.",
          lead="6698 sayılı Kişisel Verilerin Korunması Kanunu kapsamında bilgilendirme.", body=KVKK),
-    dict(path="/acik-riza/", title="Sağlık Verileri Açık Rıza Metni | Dosify", h1="Sağlık verileri açık rıza metni",
-         description="Dosify'da sağlık verilerinizin işlenmesine ilişkin açık rıza metni ve rızanızı geri alma yolları.",
+    dict(path="/acik-riza/", title="Sağlık Verileri Açık Rıza Metni | Dozunda", h1="Sağlık verileri açık rıza metni",
+         description="Dozunda'da sağlık verilerinizin işlenmesine ilişkin açık rıza metni ve rızanızı geri alma yolları.",
          lead="Sağlık verileriniz yalnızca bu metindeki amaçlarla ve sizin açık rızanızla işlenir.", body=CONSENT),
-    dict(path="/kullanim-kosullari/", title="Kullanım Koşulları | Dosify", h1="Kullanım Koşulları",
-         description="Dosify mobil uygulaması ve web sitesinin kullanım koşulları, sağlık uyarısı, üyelik ve sorumluluklar.",
-         lead="Dosify'ı kullanmadan önce lütfen okuyun.", body=TERMS),
+    dict(path="/kullanim-kosullari/", title="Kullanım Koşulları | Dozunda", h1="Kullanım Koşulları",
+         description="Dozunda mobil uygulaması ve web sitesinin kullanım koşulları, sağlık uyarısı, üyelik ve sorumluluklar.",
+         lead="Dozunda'yı kullanmadan önce lütfen okuyun.", body=TERMS),
 ]
